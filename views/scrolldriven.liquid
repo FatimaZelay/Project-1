@@ -123,5 +123,55 @@
     </form>
   </section>
   </main>
+  
+
+  <!-- DATA OUTPUT -->
+  <section class="section-source">
+    <div class="background"></div>
+    <h1 class="h1-sources">Sent Sources</h1>
+
+    {% for source in links reversed %}
+      {% if forloop.index <= 4 %}
+        <p class="p-source-name">
+          Name: {{ source.title }}
+        </p>
+        <p class="p-source-url">
+          <a href="{{ source.url }}" target="_blank">
+            {{ source.url }}
+          </a>
+        </p>
+      {% else %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  <script>
+    const submitButton = document.querySelector('#submit-button')
+
+    submitButton.addEventListener('click', () => {
+      submitButton.classList.toggle('loader')
+    })
+  </script>
+</main>
+
+
+<script>
+  const bar = document.querySelector('.scroll-bar')
+
+  function updateBar() {
+    const scrollTop = window.scrollY
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+    bar.style.width = progress + '%'
+  }
+
+  window.addEventListener('scroll', updateBar)
+  window.addEventListener('resize', updateBar)
+  updateBar()
+</script>
+
+
+{% render 'partials/foot.liquid' %}
 
   {% render 'partials/foot.liquid' %}
