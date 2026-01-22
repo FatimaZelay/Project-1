@@ -1,0 +1,16 @@
+{
+  "name": "project-1",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "gray-matter": "^4.0.3",
+    "liquidjs": "^10.24.0",
+    "marked": "^12.0.2"
+  }
+}
