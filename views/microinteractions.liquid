@@ -57,6 +57,31 @@
   </section>
 
 
+  <!-- FORM -->
+ <section class="form-section">
+    <h2>Suggest a resource</h2>
+    <p>
+      Know a good article or tutorial about CSS animations?
+      Share it below.
+    </p>
+
+    <form method="post" action="/scrolldriven">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+
+      <label>
+        URL
+        <input type="text" name="description" required>
+      </label>
+
+      <button type="submit" class="submit-button">
+        Submit
+      </button>
+    </form>
+  </section> 
+
 </main>
-</main>
+
 {% render 'partials/foot.liquid' %}
