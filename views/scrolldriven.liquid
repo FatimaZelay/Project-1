@@ -1,0 +1,127 @@
+{% render 'partials/header-scroll.liquid', title: "Scroll Driven Animation" %}
+<link rel="stylesheet" href="/styles/style2.css">
+
+<main>
+  <div class="scroll-bar"></div>
+
+  <!-- HERO -->
+  <section class="main-content">
+    <img
+      src="/assets/images/img1.png"
+      alt="background image of flowers">
+    <h1>Scroll driven animation</h1>
+  </section>
+
+  <!-- SECTION 1 -->
+  <section>
+    <div class="background"></div> 
+    <p>
+      Scroll to explore more about scroll-driven animations and their use in modern web design.
+      Learn how motion and interactivity can enhance the user experience.
+    </p>
+
+    <img
+      class="image-container"
+      src="/assets/images/img1.png"
+      alt="flowers appearing while scrolling">
+  </section>
+
+  <!-- SECTION 2 -->
+  <section>
+    <div class="background"></div> 
+    <p>
+      Whether you're adding subtle movements or telling complete stories,
+      scroll animations are a powerful tool in your design arsenal.
+      Incorporating these animations can make your site unique and engaging.
+    </p>
+
+    <img
+      class="image-container"
+      src="/assets/images/img2.png"
+      alt="scroll-driven image animation example">
+  </section>
+
+  <!-- CODE EXPLANATION -->
+  <section>
+    <div class="background"></div>
+    <h1 class="h1-code">Scroll-Driven Animation on images (CSS Only)</h1>
+    <p class="p-code">
+      To create a smooth scroll-driven animation on the image, I used CSS features like
+      <code>animation-timeline</code> and <code>view-timeline</code>, which allow animations to be
+      triggered based on the scroll position.
+    </p>
+
+<pre><code>
+@media (prefers-reduced-motion: no-preference) {
+  .image-container {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-name: fade-in;
+    animation-timeline: --image;
+    animation-range: entry 0% entry 100%;
+  }
+
+  @keyframes fade-in {
+    from {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+</code></pre>
+  </section>
+
+  <!-- SOURCES + FORM -->
+  <section>
+    <div class="background"></div>
+    <h1 class="h1-code">Sources Used</h1>
+    <p class="p-code">
+      While building this website, I relied on a few sources. Below is a list of the main resources I consulted:
+    </p>
+
+    <ul>
+      <li>
+        <a href="https://scroll-driven-animations.style/">
+          Scroll-Driven Animations
+        </a>
+      </li>
+      <li>
+        <a href="https://css-tricks.com/creating-scroll-based-animations-in-full-view/">
+        Creating Scroll-Based Animations
+        </a>
+      </li>
+    </ul>
+
+    <article class="suggestions">            
+      <h2>Suggestions for scroll-driven animation sources</h2>
+      <p>
+        Do you have a useful resource for scroll-driven animations?
+        Share your suggestion with us!
+      </p>
+    </article>
+
+    <form method="post" action="/scrolldriven">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+
+      <label>
+        URL
+        <input type="text" name="description" required>
+      </label>
+
+      <button type="submit" id="submit-button" class="submit-button">
+        Submit
+      </button>
+    </form>
+  </section>
+  </main>
+
+  {% render 'partials/foot.liquid' %}
