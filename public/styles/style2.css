@@ -1,0 +1,90 @@
+body {
+  font-family: Georgia, serif;
+  background-color: var(--fantasy);
+  color: var(--tobago);
+}
+
+/* SECTIONS */
+section {
+  position: relative;
+  padding: 6rem 2rem;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background: var(--vanilla);
+  z-index: -1;
+}
+
+section:nth-of-type(even) .background {
+  background: var(--silver);
+}
+
+/* HERO */
+.main-content {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.main-content img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+/* IMAGES */
+.image-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* SCROLL-DRIVEN ANIMATION */
+@media (prefers-reduced-motion: no-preference) {
+  .image-container {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+    animation: fade-in linear both;
+    animation-timeline: --image;
+    animation-range: entry 0% entry 100%;
+  }
+
+  @keyframes fade-in {
+    from {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/* CODE BLOCK */
+pre {
+  background: var(--tobago);
+  color: var(--fantasy);
+  padding: 2rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* SCROLL PROGRESS BAR */
+.scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 0;
+  background: var(--rose);
+  z-index: 9999;
+}
