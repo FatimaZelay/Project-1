@@ -48,6 +48,25 @@ app.get('/microinteractions', (req, res) => {
 })
 
 
+// FORM SUBMIT (gedeeld door beide pagina’s)
+app.post('/scrolldriven', async (req, res) => {
+  await fetch('https://fdnd.directus.app/items/links', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
+    body: JSON.stringify({
+      added_by: 'user',
+      title: req.body.name,
+      url: req.body.description
+    })
+  })
+
+  // Na submit terug naar scroll-driven pagina
+  res.redirect(303, '/scrolldriven')
+})
+
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
 })
