@@ -42,6 +42,11 @@ app.get('/scrolldriven', async (req, res) => {
   })
 })
 
+// MICRO-INTERACTIONS PAGE (geen data nodig)
+app.get('/microinteractions', (req, res) => {
+  res.render('microinteractions')
+})
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
