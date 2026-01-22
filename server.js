@@ -30,6 +30,17 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+// SCROLL-DRIVEN PAGE (haalt data op)
+app.get('/scrolldriven', async (req, res) => {
+  const apiResponse = await fetch(
+    'https://fdnd.directus.app/items/links'
+  )
+  const linkResponseJSON = await apiResponse.json()
+
+  res.render('scrolldriven', {
+    links: linkResponseJSON.data
+  })
+})
 
 
 app.listen(PORT, () => {
